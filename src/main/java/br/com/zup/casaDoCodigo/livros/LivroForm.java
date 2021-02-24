@@ -62,21 +62,21 @@ public class LivroForm {
 	public LivroForm() {
 	}
 
-	public LivroForm(@NotBlank String titulo, @NotBlank String resumo, @NotBlank String sumario,
-			@NotNull BigDecimal preco,
-			@NotNull Integer paginas, String isbn,
-			@Future LocalDate dataPublicacao, @NotNull @Valid Long idCategoria,
-			@NotNull @Valid Long idAutor) {
+	public LivroForm(Livro livro, Categoria categoria, Autor autor) {
 		super();
-		this.titulo = titulo;
-		this.resumo = resumo;
-		this.sumario = sumario;
-		this.preco = preco;
-		this.paginas = paginas;
-		this.isbn = isbn;
-		this.dataPublicacao = dataPublicacao;
-		this.idCategoria = idCategoria;
-		this.idAutor = idAutor;
+		this.titulo = livro.getTitulo();
+		this.resumo = livro.getResumo();
+		this.sumario = livro.getSumario();
+		this.preco = livro.getPreco();
+		this.paginas = livro.getPaginas();
+		this.isbn = livro.getIsbn();
+		this.dataPublicacao = livro.getDataPublicacao();
+		this.idCategoria = categoria.getId();
+		this.idAutor = autor.getId();
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 	public String getTitulo() {

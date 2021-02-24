@@ -32,6 +32,18 @@ public class Autor {
 		this.descricao = descricao;
 	}
 
+	public Long getId() {
+		return id;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
 	@Override
 	public String toString() {
 		return "Autor [id=" + id + ", nome=" + nome + 

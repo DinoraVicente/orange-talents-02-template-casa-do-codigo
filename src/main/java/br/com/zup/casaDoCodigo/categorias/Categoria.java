@@ -26,6 +26,14 @@ public class Categoria {
 	public Categoria(@NotBlank String nome) {
 		this.nome = nome;
 	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
 
 	@Override
 	public String toString() {

@@ -14,11 +14,19 @@ public class CategoriaForm {
     @UniqueValue(domainClass = Categoria.class, fieldName = "nome", message = "Categoria já cadastrada")
 	private String nome;
 
+    @Deprecated
+	public CategoriaForm() {
+	}
+    
+	public CategoriaForm(Categoria categoria) {
+		this.nome = categoria.getNome();
+	}
+
 	public String getNome() {
 		return nome;
 	}
 
 	public Categoria toModel() {
-		return new Categoria(this.nome);
+		return new Categoria(nome);
 	}
 }
