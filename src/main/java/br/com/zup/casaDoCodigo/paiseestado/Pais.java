@@ -1,10 +1,14 @@
 package br.com.zup.casaDoCodigo.paiseestado;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -16,6 +20,8 @@ public class Pais {
 	@NotBlank
 	@Column(unique = true)
 	private String nome;
+    @OneToMany(mappedBy = "pais")
+    private List<Estado> estados = new ArrayList<>();
 	
 	@Deprecated
 	public Pais() {
@@ -32,7 +38,11 @@ public class Pais {
 	public String getNome() {
 		return nome;
 	}
-
+	
+	public List<Estado> getEstados() {
+		return estados;
+	}
+	
 	@Override
 	public String toString() {
 		return "Pais [id=" + id + ", nome=" + nome + "]";

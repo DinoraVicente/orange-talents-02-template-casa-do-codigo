@@ -5,12 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 import br.com.zup.casaDoCodigo.paiseestado.Estado;
 import br.com.zup.casaDoCodigo.paiseestado.Pais;
-import br.com.zup.casaDoCodigo.validacoes.CPFouCNPJ;
 
 @Entity
 public class Cliente {
@@ -19,29 +19,20 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Email
-	@NotBlank
 	@Column(unique = true)
 	private String email;
-	@NotBlank
 	private String nome;
-	@NotBlank
 	private String sobrenome;
-	@CPFouCNPJ
-	@NotBlank
 	@Column(unique = true)
 	private String documento;
-	@NotBlank
 	private String endereco;
-	@NotBlank
 	private String complemento;
-	@NotBlank
 	private String cidade;
-	@NotBlank
+	@ManyToOne
 	private Pais pais;
+	@ManyToOne
 	private Estado estado;
-	@NotBlank
 	private String telefone;
-	@NotBlank
 	private String cep;
 	
 	@Deprecated
@@ -52,7 +43,6 @@ public class Cliente {
 			@NotBlank String documento, @NotBlank String endereco, @NotBlank String complemento,
 			@NotBlank String cidade, @NotBlank Pais pais, Estado estado, @NotBlank String telefone,
 			@NotBlank String cep) {
-		super();
 		this.email = email;
 		this.nome = nome;
 		this.sobrenome = sobrenome;
@@ -65,6 +55,15 @@ public class Cliente {
 		this.telefone = telefone;
 		this.cep = cep;
 	}
-	
-	
+
+	public Long getId() {
+		return id;
+	}
+
+	@Override
+	public String toString() {
+		return "Cliente [id=" + id + ", email=" + email + ", nome=" + nome + ", sobrenome=" + sobrenome + ", documento="
+				+ documento + ", endereco=" + endereco + ", complemento=" + complemento + ", cidade=" + cidade
+				+ ", pais=" + pais + ", estado=" + estado + ", telefone=" + telefone + ", cep=" + cep + "]";
+	}
 }
