@@ -1,0 +1,26 @@
+package br.com.zup.casaDoCodigo.paiseestado;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+import javax.validation.Valid;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class EstadoController {
+	
+	@PersistenceContext
+	private EntityManager manager;
+	
+	@PostMapping("/estado")
+	@Transactional
+	public String criaEstado(@RequestBody @Valid EstadoForm form) {
+		Estado estado = form.toModel(manager);
+		manager.persist(estado);
+		
+		return estado.toString();
+	}
+}
