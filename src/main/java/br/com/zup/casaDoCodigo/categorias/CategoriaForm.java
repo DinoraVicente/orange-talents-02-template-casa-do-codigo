@@ -4,7 +4,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import br.com.zup.casaDoCodigo.compartilhado.UniqueValue;
+import br.com.zup.casaDoCodigo.validacoes.UniqueValue;
 
 public class CategoriaForm {
 

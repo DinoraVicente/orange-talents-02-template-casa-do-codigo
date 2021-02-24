@@ -4,7 +4,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import br.com.zup.casaDoCodigo.compartilhado.UniqueValue;
+import br.com.zup.casaDoCodigo.validacoes.UniqueValue;
 
 public class AutorForm {
 	@NotBlank

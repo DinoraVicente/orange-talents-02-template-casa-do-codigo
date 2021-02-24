@@ -1,4 +1,4 @@
-package br.com.zup.casaDoCodigo.compartilhado;
+package br.com.zup.casaDoCodigo.validacoes;
 
 import java.util.List;
 

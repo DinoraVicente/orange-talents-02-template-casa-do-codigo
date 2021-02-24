@@ -20,8 +20,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.zup.casaDoCodigo.autores.Autor;
 import br.com.zup.casaDoCodigo.categorias.Categoria;
-import br.com.zup.casaDoCodigo.compartilhado.ExistsId;
-import br.com.zup.casaDoCodigo.compartilhado.UniqueValue;
+import br.com.zup.casaDoCodigo.validacoes.ExistsId;
+import br.com.zup.casaDoCodigo.validacoes.UniqueValue;
 
 public class LivroForm {
 	
