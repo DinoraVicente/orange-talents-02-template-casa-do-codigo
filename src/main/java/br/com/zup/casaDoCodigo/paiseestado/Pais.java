@@ -5,10 +5,12 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityManager;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Query;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -71,5 +73,11 @@ public class Pais {
 		} else if (!nome.equals(other.nome))
 			return false;
 		return true;
+	}
+
+	public boolean possuiEstados(EntityManager manager) {
+		Query query = manager.createQuery("select e from Estado e where e.pais = :pais");
+		query.setParameter("pais", this);
+		return !query.getResultList().isEmpty();
 	}
 }

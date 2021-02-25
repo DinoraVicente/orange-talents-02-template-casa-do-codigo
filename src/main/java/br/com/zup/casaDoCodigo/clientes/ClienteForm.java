@@ -1,14 +1,9 @@
 package br.com.zup.casaDoCodigo.clientes;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.web.server.ResponseStatusException;
 
 import br.com.zup.casaDoCodigo.paiseestado.Estado;
 import br.com.zup.casaDoCodigo.paiseestado.Pais;
@@ -111,28 +106,9 @@ public class ClienteForm {
 	}
 
     public Cliente toModel(EntityManager manager) {
-        Pais pais = manager.find(Pais.class, idPais);
-        Estado estado = null;
-        if (idEstado != null) {
-            estado = manager.find(Estado.class, idEstado);
-        }
-
-        List<Estado> estados = pais.getEstados();
-
-        if (estados.isEmpty() && idEstado == null) {
-            return new Cliente(email, nome, sobrenome, documento, endereco, complemento, cidade, pais,
-                    estado, telefone, cep);
-        }
-        if (estados.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Este País não possui Estados cadastrados");
-        }
-        if (idEstado == null) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Você precisa preencher um Estado para este País");
-        }
-        assert estado != null;
-        if (!pais.getId().equals(estado.getPais().getId())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Esse Estado não pertence a este País");
-        }
+    	Pais pais = manager.find(Pais.class, idPais);
+    	Estado estado = manager.find(Estado.class, idEstado);
+    	
         return new Cliente(email, nome, sobrenome, documento, endereco, complemento, cidade, pais,
                 estado, telefone, cep);
     }
