@@ -38,22 +38,3 @@ public class EstadoController {
 		}
 	}
 }
-
-//@PostMapping
-//@Transactional
-//public String store(@RequestBody @Valid  StateRequest request) {
-//    // state, country_id
-//    State state = request.toState(em);
-//
-//    Query query = em.createQuery("select s from State s where s.country.id = :fk and s.name = :name");
-//    query.setParameter("fk", request.getCountryId());
-//    query.setParameter("name", request.getName());
-//    List resultList = query.getResultList();
-//
-//    if(resultList.size() >= 1) {
-//        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "This state has been already registered for this country");
-//    }
-//
-//    em.persist(state);
-//    return state.toString();
-//}
