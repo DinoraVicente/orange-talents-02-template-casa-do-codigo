@@ -8,9 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import br.com.zup.casaDoCodigo.paiseestado.Estado;
 import br.com.zup.casaDoCodigo.paiseestado.Pais;
+import br.com.zup.casaDoCodigo.validacoes.CpfOuCnpj;
 
 @Entity
 public class Cliente {
@@ -19,20 +21,32 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Email
+	@NotBlank
 	@Column(unique = true)
 	private String email;
+	@NotBlank
 	private String nome;
+	@NotBlank
 	private String sobrenome;
+	@CpfOuCnpj
+	@NotBlank
 	@Column(unique = true)
 	private String documento;
+	@NotBlank
 	private String endereco;
+	@NotBlank
 	private String complemento;
+	@NotBlank
 	private String cidade;
+	@NotNull
 	@ManyToOne
 	private Pais pais;
+	@NotNull
 	@ManyToOne
 	private Estado estado;
+	@NotBlank
 	private String telefone;
+	@NotBlank
 	private String cep;
 	
 	@Deprecated
@@ -54,10 +68,6 @@ public class Cliente {
 		this.estado = estado;
 		this.telefone = telefone;
 		this.cep = cep;
-	}
-
-	public Long getId() {
-		return id;
 	}
 
 	@Override

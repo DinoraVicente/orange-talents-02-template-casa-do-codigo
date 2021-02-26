@@ -17,9 +17,14 @@ public class Autor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private	@NotBlank String nome;
-	private @Email @Column(unique = true) String email;
-	private	@NotBlank @Size(max=400) String descricao;
+	@NotBlank
+	private String nome;
+	@Email
+	@Column(unique = true)
+	private String email;
+	@NotBlank 
+	@Size(max=400)
+	private	String descricao;
 	private LocalDateTime instanteCriacao = LocalDateTime.now();
 	
 	@Deprecated
@@ -32,10 +37,6 @@ public class Autor {
 		this.descricao = descricao;
 	}
 
-	public Long getId() {
-		return id;
-	}
-	
 	public String getNome() {
 		return nome;
 	}

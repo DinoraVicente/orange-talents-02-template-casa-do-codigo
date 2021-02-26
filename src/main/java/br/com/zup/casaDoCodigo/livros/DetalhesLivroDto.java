@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 import br.com.zup.casaDoCodigo.validacoes.UniqueValue;
 
 public class DetalhesLivroDto {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

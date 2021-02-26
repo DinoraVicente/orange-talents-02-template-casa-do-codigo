@@ -3,6 +3,7 @@ package br.com.zup.casaDoCodigo.detalhesite;
 import br.com.zup.casaDoCodigo.autores.Autor;
 
 public class DetalhesSiteAutores {
+	
 	private String nome;
 	private String descricao;
 	

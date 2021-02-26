@@ -40,26 +40,6 @@ public class ClienteForm {
 	private String telefone;
 	@NotBlank
 	private String cep;
-	
-	@Deprecated
-	public ClienteForm() {
-	}
-
-	public ClienteForm(@Email @NotBlank String email, @NotBlank String nome, @NotBlank String sobrenome, @NotBlank String documento,
-            @NotBlank String endereco, @NotBlank String complemento, @NotBlank String cidade, @NotNull Long idPais, Long idEstado,
-            @NotBlank String telefone, @NotBlank String cep) {
-        this.email = email;
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.documento = documento;
-        this.endereco = endereco;
-        this.complemento = complemento;
-        this.cidade = cidade;
-        this.idPais = idPais;
-        this.idEstado = idEstado;
-        this.telefone = telefone;
-        this.cep = cep;
-	}
 
 	public String getEmail() {
 		return email;

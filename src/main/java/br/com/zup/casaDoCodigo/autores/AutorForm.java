@@ -20,13 +20,13 @@ public class AutorForm {
 	public String getNome() {
 		return nome;
 	}
+	
+	public String getEmail() {
+		return email;
+	}
 
 	public String getDescricao() {
 		return descricao;
-	}
-
-	public String getEmail() {
-		return email;
 	}
 	
 	public Autor toModel() {

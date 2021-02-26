@@ -8,16 +8,27 @@ import java.lang.annotation.Target;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
+import javax.validation.ReportAsSingleViolation;
 
-@Constraint(validatedBy = {CpfOuCnpjValidator.class})
-@Target({ElementType.FIELD, ElementType.PARAMETER})
-@Retention(value = RetentionPolicy.RUNTIME)
+import org.hibernate.validator.constraints.CompositionType;
+import org.hibernate.validator.constraints.ConstraintComposition;
+import org.hibernate.validator.constraints.br.CNPJ;
+import org.hibernate.validator.constraints.br.CPF;
+
+@CPF
+@CNPJ
+@ConstraintComposition(CompositionType.OR) // specifies OR as boolean operator instead of AND
+@ReportAsSingleViolation // the error reports of each individual composing constraint are ignored
 @Documented
+@Constraint(validatedBy = { }) // we don't need a validator :-)
+@Target({ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
 public @interface CpfOuCnpj {
 
-  String message() default "CPF/CNPJ inválido";
+    String message() default "CPF ou CNPJ invalido";
 
-  Class<?>[] groups() default {};
+    Class<?>[] groups() default { };
 
-  Class<? extends Payload>[] payload() default {};
+    Class<? extends Payload>[] payload() default { };
+
 }

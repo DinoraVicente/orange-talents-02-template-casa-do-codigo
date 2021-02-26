@@ -4,9 +4,6 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import javax.persistence.EntityManager;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.validation.Valid;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Min;
@@ -25,9 +22,6 @@ import br.com.zup.casaDoCodigo.validacoes.UniqueValue;
 
 public class LivroForm {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 	@NotBlank
     @UniqueValue(domainClass = Livro.class, fieldName = "titulo", message = "Título já cadastrado")
 	private String titulo;
@@ -57,27 +51,6 @@ public class LivroForm {
 	@NotNull
     @ExistsId(domainClass = Autor.class, fieldName = "id", message = "Autor não existe")
 	private Long idAutor;
-	
-    @Deprecated
-	public LivroForm() {
-	}
-
-	public LivroForm(Livro livro, Categoria categoria, Autor autor) {
-		super();
-		this.titulo = livro.getTitulo();
-		this.resumo = livro.getResumo();
-		this.sumario = livro.getSumario();
-		this.preco = livro.getPreco();
-		this.paginas = livro.getPaginas();
-		this.isbn = livro.getIsbn();
-		this.dataPublicacao = livro.getDataPublicacao();
-		this.idCategoria = categoria.getId();
-		this.idAutor = autor.getId();
-	}
-
-	public Long getId() {
-		return id;
-	}
 
 	public String getTitulo() {
 		return titulo;
@@ -113,15 +86,6 @@ public class LivroForm {
 
 	public Long getIdAutor() {
 		return idAutor;
-	}
-
-	/*
-	 * setter criado pois o jackson não estava sendo capaz de desseralizar
-	 * o json com a data no parâmetro pelo construtor.
-	 */
-	
-	public void setDataPublicacao(LocalDate dataPublicacao) {
-		this.dataPublicacao = dataPublicacao;
 	}
 
 	public Livro toModel(EntityManager manager) {
