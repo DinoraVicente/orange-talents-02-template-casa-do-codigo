@@ -4,17 +4,17 @@ import javax.validation.constraints.NotBlank;
 
 import br.com.zup.casaDoCodigo.validacoes.UniqueValue;
 
-public class PaisForm {
+public class PaisRequest {
 
 	@NotBlank
 	@UniqueValue(domainClass = Pais.class, fieldName = "nome", message = "Nome é obrigatório")
 	private String nome;
 	
 	@Deprecated
-	public PaisForm() {
+	public PaisRequest() {
 	}
 	
-	public PaisForm(Pais pais) {
+	public PaisRequest(Pais pais) {
 		this.nome = pais.getNome();
 	}
 

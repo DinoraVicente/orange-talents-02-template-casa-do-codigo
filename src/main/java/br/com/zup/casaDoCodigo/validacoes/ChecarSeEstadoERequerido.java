@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import br.com.zup.casaDoCodigo.clientes.ClienteForm;
+import br.com.zup.casaDoCodigo.clientes.ClienteRequest;
 import br.com.zup.casaDoCodigo.paiseestado.Estado;
 import br.com.zup.casaDoCodigo.paiseestado.Pais;
 
@@ -21,7 +21,7 @@ public class ChecarSeEstadoERequerido implements Validator{
 	
     @Override
     public boolean supports(Class<?> clazz) {
-        return ClienteForm.class.isAssignableFrom(clazz);
+        return ClienteRequest.class.isAssignableFrom(clazz);
     }
 
 	@Override
@@ -30,7 +30,7 @@ public class ChecarSeEstadoERequerido implements Validator{
 	            return;
 	     }
 
-	     ClienteForm request = (ClienteForm ) target;
+	     ClienteRequest request = (ClienteRequest ) target;
 
 	     Pais pais = manager.find(Pais.class, request.getIdPais());
 

@@ -20,7 +20,7 @@ import br.com.zup.casaDoCodigo.categorias.Categoria;
 import br.com.zup.casaDoCodigo.validacoes.ExistsId;
 import br.com.zup.casaDoCodigo.validacoes.UniqueValue;
 
-public class LivroForm {
+public class LivroRequest {
 	
 	@NotBlank
     @UniqueValue(domainClass = Livro.class, fieldName = "titulo", message = "Título já cadastrado")

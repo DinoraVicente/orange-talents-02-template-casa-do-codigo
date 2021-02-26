@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import br.com.zup.casaDoCodigo.validacoes.ExistsId;
 import br.com.zup.casaDoCodigo.validacoes.UniqueValue;
 
-public class EstadoForm {
+public class EstadoRequest {
 	
 	@NotBlank
 	@UniqueValue(domainClass = Estado.class, fieldName = "nome", message = "Nome é obrigatório")
@@ -17,10 +17,10 @@ public class EstadoForm {
 	private Long idPais;
 	
 	@Deprecated
-	public EstadoForm() {
+	public EstadoRequest() {
 	}
 	
-	public EstadoForm(@NotBlank Estado estado, @NotNull Pais pais) {
+	public EstadoRequest(@NotBlank Estado estado, @NotNull Pais pais) {
 		this.nome = estado.getNome();
 		this.idPais = pais.getId();
 	}

@@ -6,7 +6,7 @@ import javax.validation.constraints.Size;
 
 import br.com.zup.casaDoCodigo.validacoes.UniqueValue;
 
-public class AutorForm {
+public class AutorRequest {
 	@NotBlank
 	private	String nome;
 	@Email 

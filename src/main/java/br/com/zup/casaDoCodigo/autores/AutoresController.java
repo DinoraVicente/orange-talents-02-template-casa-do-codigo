@@ -19,7 +19,7 @@ public class AutoresController {
 	
 	@PostMapping
 	@Transactional
-	public String cadastrar(@Valid @RequestBody AutorForm form){
+	public String cadastrar(@Valid @RequestBody AutorRequest form){
 		Autor autor = form.toModel();
 		manager.persist(autor);
 		return autor.toString();

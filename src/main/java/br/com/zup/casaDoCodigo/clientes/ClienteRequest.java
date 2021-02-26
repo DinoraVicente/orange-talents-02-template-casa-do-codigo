@@ -11,7 +11,7 @@ import br.com.zup.casaDoCodigo.validacoes.CpfOuCnpj;
 import br.com.zup.casaDoCodigo.validacoes.ExistsId;
 import br.com.zup.casaDoCodigo.validacoes.UniqueValue;
 
-public class ClienteForm {
+public class ClienteRequest {
 	
 	@Email
 	@NotBlank

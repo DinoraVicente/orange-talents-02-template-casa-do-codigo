@@ -17,7 +17,7 @@ public class ClienteController {
 	
 	@PostMapping("/cliente")
 	@Transactional
-	public String cadastraCliente(@RequestBody @Valid ClienteForm form) {
+	public String cadastraCliente(@RequestBody @Valid ClienteRequest form) {
 		Cliente cliente = form.toModel(manager);
 		manager.persist(cliente);
 		

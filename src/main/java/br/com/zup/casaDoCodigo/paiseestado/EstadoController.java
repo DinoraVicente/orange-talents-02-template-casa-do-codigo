@@ -22,7 +22,7 @@ public class EstadoController {
 	
 	@PostMapping("/estado")
 	@Transactional
-	public String criaEstado(@RequestBody @Valid EstadoForm form) {
+	public String criaEstado(@RequestBody @Valid EstadoRequest form) {
 		Estado estado = form.toModel(manager);
 		
 		Query query = manager.createQuery("select e from Estado e where e.pais.id = :id and e.nome = :nome");

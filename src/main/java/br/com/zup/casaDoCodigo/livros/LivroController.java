@@ -25,7 +25,7 @@ public class LivroController {
 	
 	@PostMapping(value = "/livros")
 	@Transactional
-	public String cadastrar(@RequestBody @Valid LivroForm form) {
+	public String cadastrar(@RequestBody @Valid LivroRequest form) {
 		Livro livro = form.toModel(manager);
 		manager.persist(livro);
 		return livro.toString();

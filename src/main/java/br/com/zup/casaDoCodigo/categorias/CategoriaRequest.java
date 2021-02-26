@@ -4,7 +4,7 @@ import javax.validation.constraints.NotBlank;
 
 import br.com.zup.casaDoCodigo.validacoes.UniqueValue;
 
-public class CategoriaForm {
+public class CategoriaRequest {
 
 	@NotBlank
     @UniqueValue(domainClass = Categoria.class, fieldName = "nome", message = "Categoria já cadastrada")
