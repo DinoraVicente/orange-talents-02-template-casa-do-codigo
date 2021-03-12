@@ -10,7 +10,7 @@ import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.util.Assert;
 
-public class UniqueValueValidator implements ConstraintValidator<UniqueValue, Object>{
+public class  UniqueValueValidator implements ConstraintValidator<UniqueValue, Object>{
 	
 	private String domainAttribute;
 	private Class<?> klass;

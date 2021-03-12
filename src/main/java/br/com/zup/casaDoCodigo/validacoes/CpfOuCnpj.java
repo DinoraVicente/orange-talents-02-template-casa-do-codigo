@@ -20,7 +20,7 @@ import org.hibernate.validator.constraints.br.CPF;
 @ConstraintComposition(CompositionType.OR) // specifies OR as boolean operator instead of AND
 @ReportAsSingleViolation // the error reports of each individual composing constraint are ignored
 @Documented
-@Constraint(validatedBy = { }) // we don't need a validator :-)
+@Constraint(validatedBy = {}) // we don't need a validator :-)
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CpfOuCnpj {
